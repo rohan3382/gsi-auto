@@ -5,12 +5,12 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://master.dl.sourceforge.net/project/evolution-x/RMX1901/EvolutionX_4.5_RMX1901-10.0-20200716-1312-OFFICIAL.zip
-  ROM_NAME: EvolutionX
+  ROM_URL: https://dl.google.com/dl/android/aosp/sunfish-qd4a.200805.003-factory-fac7c08d.zip
+  ROM_NAME: pixel4a
   BUILD_AB: true
   BUILD_AONLY: false
-  ROM_AONLY: Miui.7z
-  ROM_AB: MiuiAB.7z
+  ROM_AONLY: pixel4a.7z
+  ROM_AB: Pixel4a.7z
 
 jobs:
   build:
