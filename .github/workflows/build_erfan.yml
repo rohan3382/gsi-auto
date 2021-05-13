@@ -5,12 +5,12 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://master.dl.sourceforge.net/project/evolution-x/RMX1901/EvolutionX_4.5_RMX1901-10.0-20200716-1312-OFFICIAL.zip
-  ROM_NAME: EvolutionX
+  ROM_URL: https://dl.google.com/developers/android/sc/images/factory/redfin-spp3.210325.010-factory-3b4bc719.zip
+  ROM_NAME: Pixel
   BUILD_AB: true
   BUILD_AONLY: false
-  ROM_AONLY: Miui.7z
-  ROM_AB: MiuiAB.7z
+  ROM_AONLY: Pixel5.7z
+  ROM_AB: Pixel5.7z
 
 jobs:
   build:
@@ -45,15 +45,15 @@ jobs:
               sudo bash setup.sh
        
        - name: Download Stock Rom & Generate Aonly GSI
-         if: env.BUILD_AONLY == 'true'
+         if: env.BUILD_AONLY == 'false'
          run: sudo ./ErfanGSIs/url2GSI.sh -a $ROM_URL $ROM_NAME
 
        - name: 7z Aonly GSI
-         if: env.BUILD_AONLY == 'true'
+         if: env.BUILD_AONLY == 'false'
          run: 7za a -t7z -r $ROM_AONLY ErfanGSIs/output/*
        
        - name: Upload Aonly GSI to WeTransfer
-         if: env.BUILD_AONLY == 'true'
+         if: env.BUILD_AONLY == 'false'
          run: |
               curl -sL https://git.io/file-transfer | sh
               ./transfer bit $ROM_AONLY
